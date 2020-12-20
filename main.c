@@ -16,11 +16,6 @@ int main ()
     const char source_letter_nums []= "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     
 
-
-    
-
-
-
     system("echo This program will generate your password randomly and write it in a file");
 
 
