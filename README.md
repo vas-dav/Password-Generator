@@ -1,7 +1,7 @@
 # Password-Generator Program
  This is a program, which allows to generate a random password with many cool features.
  
- # Functionality:
+ ## Functionality:
  #### Four different cases for generating a password
  * 1. Password with letters only
  * 2. Password with numbers only
