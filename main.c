@@ -16,14 +16,7 @@ int main ()
     const char source_letter_nums []= "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     
 
-    FILE*typer;
-    if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
-    {
-      printf("File is not created or program failed to open it.\n");
-    } else
-    {
-      printf("File is found.\n");
-    }
+
     
 
 
@@ -38,7 +31,6 @@ int main ()
     printf("4. Password with symbols, letters and numbers\n\n Enter your choice: ");
     scanf("%d", &funct);
 
-    typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "a+");
 
     switch(funct)
   {
@@ -54,7 +46,6 @@ int main ()
           nums_pass[i] = source_letter[rand()%54];
         }
         printf("%s\n", nums_pass);
-        fprintf(typer, "\n%s - %s", platform, nums_pass);
         break;
     }
     case 2:
@@ -69,7 +60,6 @@ int main ()
           nums_pass[i] = source_nums[rand()%10];
         }
         printf("%s\n", nums_pass);
-        fprintf(typer, "\n%s - %s", platform, nums_pass);
         break;
     }
     case 3:
@@ -84,7 +74,6 @@ int main ()
           nums_pass[i] = source_letter_nums[rand()%64];
         }
         printf("%s\n", nums_pass);
-        fprintf(typer, "\n%s - %s", platform, nums_pass);
         break;
     }
     case 4:
@@ -99,7 +88,6 @@ int main ()
           nums_pass[i] = source_all[rand()%66];
         }
         printf("%s\n", nums_pass);
-        fprintf(typer, "\n%s - %s", platform, nums_pass);
         break;
     }
     default:
@@ -108,6 +96,18 @@ int main ()
       
     }
   }
+  FILE*typer;
+  if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
+  {
+    printf("File is not created or program failed to open it.\n");
+  } else
+  {
+    typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "a+");
+    printf("File is found.\n");
+    fprintf(typer, "\n%s - %s", platform, nums_pass);
+    printf("This password is saved in your passwords.txt file.\n");
+  }
+  
   fclose(typer);
 
 
