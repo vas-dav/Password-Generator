@@ -1,2 +1,5 @@
-# 3-digit-password
- This is a program, which allows to guess a 3 -digit password 
+# Password-Generator Program
+ This is a program, which allows to generate a password & and save it on your computer in txt file.
+ 
+ # Functionality:
+ 
