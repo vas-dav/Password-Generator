@@ -1,8 +1,16 @@
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "passcode.h"
 
+//Function for copying generated password in a clipboard v1
+int clipboard(const char *str) {
 
+    const char proto_cmd[] = "echo '%s' | pbcopy";
+
+    char cmd[strlen(str) + strlen(proto_cmd) - 1]; 
+    sprintf(cmd ,proto_cmd, str);
+
+    return system(cmd);
+}
 
 int main () 
 {
@@ -15,7 +23,7 @@ int main ()
     const char source_letter []= "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     const char source_letter_nums []= "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     
-
+    printf("\n\n\n=============== Random Password Generator ================\n\n");
     system("echo This program will generate your password randomly and write it in a file");
 
 
@@ -35,12 +43,11 @@ int main ()
         scanf("%s", &platform[0]);
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        printf("\nYour password is: ");
         for(int i = 0; i < passcode_l; i++)
         {
           nums_pass[i] = source_letter[rand()%54];
         }
-        printf("%s\n", nums_pass);
+
         break;
     }
     case 2:
@@ -49,12 +56,11 @@ int main ()
         scanf("%s", &platform[0]);     
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        printf("\nYour password is: ");
         for(int i = 0; i < passcode_l; i++)
         {
           nums_pass[i] = source_nums[rand()%10];
         }
-        printf("%s\n", nums_pass);
+
         break;
     }
     case 3:
@@ -63,12 +69,11 @@ int main ()
         scanf("%s", &platform[0]); 
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        printf("\nYour password is: ");
         for(int i = 0; i < passcode_l; i++)
         {
           nums_pass[i] = source_letter_nums[rand()%64];
         }
-        printf("%s\n", nums_pass);
+
         break;
     }
     case 4:
@@ -77,12 +82,11 @@ int main ()
         scanf("%s", &platform[0]);
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        printf("\nYour password is: ");
         for(int i = 0; i < passcode_l; i++)
         {
           nums_pass[i] = source_all[rand()%66];
         }
-        printf("%s\n", nums_pass);
+
         break;
     }
     default:
@@ -91,6 +95,10 @@ int main ()
       
     }
   }
+
+  clipboard(nums_pass);
+  printf("Your password is generated: %s\nAnd copied to a clipboard\n", nums_pass);
+  
   FILE*typer;
   if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
   {
@@ -100,7 +108,7 @@ int main ()
     typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "a+");
     printf("File is found.\n");
     fprintf(typer, "\n%s - %s", platform, nums_pass);
-    printf("This password is saved in your passwords.txt file.\n");
+    printf("This password is saved in your passwords.txt file.\n\n");
   }
   
   fclose(typer);
