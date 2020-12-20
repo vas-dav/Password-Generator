@@ -1,5 +1,5 @@
 # Password-Generator Program
- This is a program, which allows to generate a password & and save it on your computer in a txt file.
+ This is a program, which allows to generate a random password with many cool features.
  
  # Functionality:
  #### Four different cases for generating a password
@@ -11,5 +11,7 @@
 #### Program saves your passwords
 * The program asks for the platform, where the passwords will be used
 * After generating a password, the program saves the password and the platform in a [txt file](https://github.com/vas-dav/Password-Generator/blob/main/SavedPasswords/passwords.txt) (CURRENTLY WORKS ON MAC ONLY)
+
+#### More coming soon...
  
  
