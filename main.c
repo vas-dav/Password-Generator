@@ -24,7 +24,7 @@ int main ()
     const char source_letter_nums []= "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
     
     printf("\n\n\n=============== Random Password Generator ================\n\n");
-    system("echo This program will generate your password randomly and write it in a file");
+    system("echo You are seeing this, if you are using Mac. This program will generate your password randomly and write it in a file. ");
 
 
     printf("Please tell the program, which password you want to generate:\n\n");
@@ -100,15 +100,25 @@ int main ()
   printf("Your password is generated: %s\nAnd copied to a clipboard\n", nums_pass);
   
   FILE*typer;
-  if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
+  if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords2.txt", "r")) == NULL)
   {
     printf("File is not created or program failed to open it.\n");
+    system("echo Generating a storage file...");
+    system("cd SavedPasswords"); 
+    system("echo Password - Platform > passwords2.txt");
+    system("cd ..");
+    if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords2.txt", "r")) == NULL)
+    {
+      printf("File is CREATED.\n");
+      fprintf(typer, "\n%s - %s", platform, nums_pass);
+    }
+    
   } else
   {
-    typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "a+");
+    typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords2.txt", "a+");
     printf("File is found.\n");
     fprintf(typer, "\n%s - %s", platform, nums_pass);
-    printf("This password is saved in your passwords.txt file.\n\n");
+    printf("This password is saved in your passwords.txt or passwords2.txt file.\n\n");
   }
   
   fclose(typer);
