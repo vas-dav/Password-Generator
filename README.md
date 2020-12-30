@@ -9,7 +9,7 @@
  * 4. Password with symbols, letters and numbers
  
 #### Program saves your passwords
-* The program asks for the platform, where the passwords will be used
+* The program asks for the platform, where the passwords will be used & username
 * After generating a password, the program saves the password and the platform in a [txt file](https://github.com/vas-dav/Password-Generator/blob/main/SavedPasswords/passwords.txt) (CURRENTLY WORKS ON MAC ONLY)
 * Saving the password in a clipboard after generating it (CURRENTLY WORKS ON MAC ONLY)
 * Program creates a file for storing your passwords if one is not created (CURRENTLY WORKS ON MAC ONLY)
