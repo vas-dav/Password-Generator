@@ -46,9 +46,10 @@ int main ()
         scanf("%s", &username[0]);
         printf("\nPlease, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
+        //printf("\nIt's %d\n", passcode_l);
         for(int i = 0; i < passcode_l; i++)
         {
-          nums_pass[i] = source_letter[rand()%54];
+          nums_pass[i] = source_letter[rand()%52];
         }
 
         break;
@@ -61,9 +62,10 @@ int main ()
         scanf("%s", &username[0]);            
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        for(int i = 0; i < passcode_l; i++)
+        //printf("\nIt's %d\n", passcode_l);
+        for(int k = 0; k < passcode_l; k++)
         {
-          nums_pass[i] = source_nums[rand()%10];
+          nums_pass[k] = source_nums[rand()%10];
         }
 
         break;
@@ -76,9 +78,10 @@ int main ()
         scanf("%s", &username[0]);        
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        for(int i = 0; i < passcode_l; i++)
+        //printf("\nIt's %d\n", passcode_l);
+        for(int j = 0; j < passcode_l; j++)
         {
-          nums_pass[i] = source_letter_nums[rand()%64];
+          nums_pass[j] = source_letter_nums[rand()%62];
         }
 
         break;
@@ -91,9 +94,10 @@ int main ()
         scanf("%s", &username[0]);        
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
-        for(int i = 0; i < passcode_l; i++)
+        //printf("\nIt's %d\n", passcode_l);
+        for(int m = 0; m < passcode_l; m++)
         {
-          nums_pass[i] = source_all[rand()%66];
+          nums_pass[m] = source_all[rand()%64];
         }
 
         break;
