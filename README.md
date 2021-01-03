@@ -15,5 +15,8 @@
 * Program creates a file for storing your passwords if one is not created (CURRENTLY WORKS ON MAC ONLY)
 
 #### More coming soon...
+
+## Quick Preview of the Program
+![Program_Preview](SavedPasswords/Program_Example.png)
  
  
