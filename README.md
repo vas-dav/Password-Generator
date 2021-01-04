@@ -28,7 +28,7 @@
  * Click on [this link](https://github.com/vas-dav/Password-Generator/archive/main.zip) to Download
  * Save the Repository on your Desktop
 #### Open up your terminal
- * Type ```cd Desktop/PasswordGenerator``` and press ```Enter```
+ * Type ```cd Desktop/Password-Generator-main``` and press ```Enter```
  * Type ```gcc -o a.out main.c``` and press ```Enter```
  * Type ```./a.out``` , press ```Enter``` 
 
