@@ -12,13 +12,13 @@ int clipboard(const char *str) {
     return system(cmd);
 }
 
+
+
 int main () 
 {
 
+    struct Passcode p1;
     int passcode_l, funct;
-    char nums_pass [150];
-    char platform [100];
-    char username [100];
     const char source_all []= "1234567890qwertyuiopasdfghjklzxcvbnm#@QWERTYUIOPASDFGHJKLZXCVBNM";
     const char source_nums []= "1234567890";
     const char source_letter []= "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
@@ -41,15 +41,15 @@ int main ()
     case 1:
     {
         printf("\nPlease enter the platform, where you will use this password: ");
-        scanf("%s", &platform[0]);
+        scanf("%s", &p1.platform[0]);
         printf("\nPlease enter the username for your platform:  ");
-        scanf("%s", &username[0]);
+        scanf("%s", &p1.username[0]);
         printf("\nPlease, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
         //printf("\nIt's %d\n", passcode_l);
         for(int i = 0; i < passcode_l; i++)
         {
-          nums_pass[i] = source_letter[rand()%52];
+          p1.nums_pass[i] = source_letter[rand()%52];
         }
 
         break;
@@ -57,15 +57,15 @@ int main ()
     case 2:
     {
         printf("\n Please enter the platform, where you will use this password: ");
-        scanf("%s", &platform[0]); 
+        scanf("%s", &p1.platform[0]);
         printf("\nPlease enter the username for your platform:  ");
-        scanf("%s", &username[0]);            
+        scanf("%s", &p1.username[0]);         
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
         //printf("\nIt's %d\n", passcode_l);
         for(int k = 0; k < passcode_l; k++)
         {
-          nums_pass[k] = source_nums[rand()%10];
+          p1.nums_pass[k] = source_nums[rand()%10];
         }
 
         break;
@@ -73,15 +73,15 @@ int main ()
     case 3:
     {
         printf("\n Please enter the platform, where you will use this password: ");
-        scanf("%s", &platform[0]); 
+        scanf("%s", &p1.platform[0]);
         printf("\nPlease enter the username for your platform:  ");
-        scanf("%s", &username[0]);        
+        scanf("%s", &p1.username[0]);        
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
         //printf("\nIt's %d\n", passcode_l);
         for(int j = 0; j < passcode_l; j++)
         {
-          nums_pass[j] = source_letter_nums[rand()%62];
+          p1.nums_pass[j] = source_letter_nums[rand()%61];
         }
 
         break;
@@ -89,15 +89,15 @@ int main ()
     case 4:
     {
         printf("\n Please enter the platform, where you will use this password: ");
-        scanf("%s", &platform[0]);
+        scanf("%s", &p1.platform[0]);
         printf("\nPlease enter the username for your platform:  ");
-        scanf("%s", &username[0]);        
+        scanf("%s", &p1.username[0]);        
         printf("\n\n Please, enter the lenght of your passcode: ");
         scanf("%d", &passcode_l);
         //printf("\nIt's %d\n", passcode_l);
         for(int m = 0; m < passcode_l; m++)
         {
-          nums_pass[m] = source_all[rand()%64];
+          p1.nums_pass[m] = source_all[rand()%64];
         }
 
         break;
@@ -109,28 +109,20 @@ int main ()
     }
   }
 
-  clipboard(nums_pass);
-  printf("Your password is generated: %s\nAnd copied to a clipboard\n", nums_pass);
+  clipboard(p1.nums_pass);
+  printf("Your password is generated: %s \nAnd copied to a clipboard\n", p1.nums_pass);
   
   FILE*typer;
   if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
   {
-    printf("File is not created or program failed to open it.\n");
-    system("echo Generating a storage file...");
-    system("cd SavedPasswords"); 
-    system("echo Password - Platform - Username > passwords.txt");
-    system("cd ..");
-    if((typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r")) == NULL)
-    {
-      printf("File is CREATED.\n");
-      fprintf(typer, "\n%s - %s - %s", platform, nums_pass, username);
-    }
-    
+    printf("File is not created or program failed to open it.\n");    
   } else
   {
+    typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "r");
+    
     typer = fopen("/Users/VFilms/Desktop/IT/C-code/PasswordGenerator/SavedPasswords/passwords.txt", "a+");
     printf("File is found.\n");
-    fprintf(typer, "\n%s - %s - %s", platform, nums_pass, username);
+    fprintf(typer, "\n1.%s - 2.%s - 3.%s", p1.nums_pass, p1.platform, p1.username);
     printf("This password is saved in your passwords.txt or passwords2.txt file.\n\n");
   }
   
